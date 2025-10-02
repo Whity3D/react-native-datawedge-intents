@@ -47,7 +47,23 @@ export function ScannerDecoder() {
       },
     },
   };
+  sendCommand('com.symbol.datawedge.api.CREATE_PROFILE', currentProfileConfig?.name)
   sendCommand('com.symbol.datawedge.api.SET_CONFIG', body);
+  sendCommand('com.symbol.datawedge.api.SET_CONFIG',{
+    PROFILE_NAME: currentProfileConfig?.name,
+    PROFILE_ENABLED: 'true',
+    CONFIG_MODE: 'UPDATE',
+    PLUGIN_CONFIG: {
+      PLUGIN_NAME: 'INTENT',
+      RESET_CONFIG: 'true',
+      PARAM_LIST: {
+        intent_output_enabled: 'true',
+        intent_action: 'com.symbol.datawedge.api.RESULT_ACTION', // The action specified in ExpoZebraScannerModule.kt
+        intent_category: 'android.intent.category.DEFAULT',
+        intent_delivery: '2', // Broadcast
+      },
+    },
+  })
 }
 
 function sendCommand(extraName: string, extraValue: any) {
