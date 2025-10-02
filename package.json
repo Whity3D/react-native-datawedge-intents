@@ -1,6 +1,6 @@
 {
-  "name": "@edritech93/react-native-datawedge-intents",
-  "version": "1.0.3",
+  "name": "@whity3d/react-native-datawedge-intents",
+  "version": "1.0.0",
   "description": "React Native Android module to interface with Zebra's DataWedge using Android Intents to control the barcode scanner and retrieve scanned data",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -58,18 +58,20 @@
     "mc40",
     "tc75",
     "tc70",
+    "tc21",
+    "tc20",
     "data-capture"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edritech93/react-native-datawedge-intents.git"
+    "url": "git+https://github.com/Whity3D/react-native-datawedge-intents.git"
   },
-  "author": "Yudi Alviska <yudiedrialviska@gmail.com> (https://github.com/edritech93)",
+  "author": "Pavel Belyakov <famwhite9@gmail.com> (https://github.com/Whity3D)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/edritech93/react-native-datawedge-intents/issues"
+    "url": "https://github.com/Whity3D/react-native-datawedge-intents/issues"
   },
-  "homepage": "https://github.com/edritech93/react-native-datawedge-intents#readme",
+  "homepage": "https://github.com/Whity3D/react-native-datawedge-intents#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
