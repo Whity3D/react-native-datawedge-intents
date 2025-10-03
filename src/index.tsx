@@ -2,6 +2,7 @@ import { NativeModules, Platform } from 'react-native';
 import {
   ScannerInit,
   ScannerReceiver,
+  ScannerTrigger,
   type ProfileConfigType,
 } from './scanner';
 
@@ -22,7 +23,7 @@ const DatawedgeIntents = NativeModules.DatawedgeIntents
       }
     );
 
-export { ScannerInit, ScannerReceiver, type ProfileConfigType };
+export { ScannerInit, ScannerReceiver, ScannerTrigger, type ProfileConfigType };
 
 export default {
   ACTION_SOFTSCANTRIGGER: DatawedgeIntents.ACTION_SOFTSCANTRIGGER,

@@ -13,14 +13,14 @@ let code39checked = true;
 let code128checked = true;
 let isSendResult = false;
 
+const intentAction = 'com.symbol.datawedge.api.RESULT_ACTION';
+const intentCategory = 'android.intent.category.DEFAULT';
+
 export function ScannerInit(profileConfig: ProfileConfigType) {
   currentProfileConfig = profileConfig;
   registerBroadcastReceiver({
-    filterActions: [
-      'com.zebra.reactnativedemo.ACTION',
-      'com.symbol.datawedge.api.RESULT_ACTION',
-    ],
-    filterCategories: ['android.intent.category.DEFAULT'],
+    filterActions: ['com.zebra.reactnativedemo.ACTION', intentAction],
+    filterCategories: [intentCategory],
   });
   sendCommand('com.symbol.datawedge.api.GET_VERSION_INFO', '');
   ScannerDecoder();
@@ -47,9 +47,12 @@ export function ScannerDecoder() {
       },
     },
   };
-  sendCommand('com.symbol.datawedge.api.CREATE_PROFILE', currentProfileConfig?.name)
+  sendCommand(
+    'com.symbol.datawedge.api.CREATE_PROFILE',
+    currentProfileConfig?.name
+  );
   sendCommand('com.symbol.datawedge.api.SET_CONFIG', body);
-  sendCommand('com.symbol.datawedge.api.SET_CONFIG',{
+  sendCommand('com.symbol.datawedge.api.SET_CONFIG', {
     PROFILE_NAME: currentProfileConfig?.name,
     PROFILE_ENABLED: 'true',
     CONFIG_MODE: 'UPDATE',
@@ -58,12 +61,12 @@ export function ScannerDecoder() {
       RESET_CONFIG: 'true',
       PARAM_LIST: {
         intent_output_enabled: 'true',
-        intent_action: 'com.symbol.datawedge.api.RESULT_ACTION', // The action specified in ExpoZebraScannerModule.kt
-        intent_category: 'android.intent.category.DEFAULT',
-        intent_delivery: '2', // Broadcast
+        intent_action: intentAction,
+        intent_category: intentCategory,
+        intent_delivery: '2',
       },
     },
-  })
+  });
 }
 
 function sendCommand(extraName: string, extraValue: any) {
