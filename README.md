@@ -5,7 +5,7 @@ React Native Android module to interface with Zebra's DataWedge using Android In
 ## Installation
 
 ```sh
-npm install @edritech93/react-native-datawedge-intents
+npm install @whity3d/react-native-datawedge-intents
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ init scanner and listen
 import {
   ScannerInit,
   ScannerReceiver,
-} from '@edritech93/react-native-datawedge-intents';
+} from '@whity3d/react-native-datawedge-intents';
 
 // ...
 
