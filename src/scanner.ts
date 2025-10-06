@@ -46,6 +46,12 @@ export function ScannerDecoder() {
         decoder_code39: '' + code39checked,
       },
     },
+    APP_LIST: [
+      {
+        PACKAGE_NAME: currentProfileConfig?.package,
+        ACTIVITY_LIST: ['*'],
+      },
+    ],
   };
   sendCommand(
     'com.symbol.datawedge.api.CREATE_PROFILE',
