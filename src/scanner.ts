@@ -7,6 +7,8 @@ export type ProfileConfigType = {
 
 let currentProfileConfig: ProfileConfigType | null = null;
 
+let currentScanId: string | null = null;
+
 let ean8checked = true;
 let ean13checked = true;
 let code39checked = true;
@@ -26,7 +28,8 @@ export function ScannerInit(profileConfig: ProfileConfigType) {
   ScannerDecoder();
 }
 
-export function ScannerTrigger() {
+export function ScannerTrigger(id?: string) {
+  currentScanId = id || null;
   sendCommand('com.symbol.datawedge.api.SOFT_SCAN_TRIGGER', 'TOGGLE_SCANNING');
 }
 
@@ -126,6 +129,7 @@ export function ScannerReceiver(intent: any): any {
         data: scannedData,
         decoder: scannedType,
         timeAtDecode: new Date().toISOString(),
+        scanId: currentScanId,
       };
     } else {
       return null;
